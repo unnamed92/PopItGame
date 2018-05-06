@@ -40,25 +40,12 @@ window.onload = function() {
 	function animate() {  
 	  ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientWidth); 
 	  ctx.fillRect(choosenPos, currentPos, 20, 20);
-	  // elements.push({
-	  // 	left: choosenPos,
-	  // 	top: currentPos,
-	  // 	width: 20,
-	  // 	height: 20
-	  // });
 	  currentPos += choosenSpeed;
 	  if(currentPos >= canvas.height) {
 		    currentPos = 0;
 		    choosenSpeed = getSpeed();
 		    choosenPos = getSquare();
 		    ctx.fillStyle= getRandomColor();
-		    // elements = [];
-		 //    elements.push({
-	  // 	left: choosenPos,
-	  // 	top: currentPos,
-	  // 	width: 20,
-	  // 	height: 20
-	  // });
 	  }
 	  stoping = requestAnimationFrame(animate);
 	}
@@ -83,13 +70,10 @@ window.onload = function() {
 	  });
 		var x = event.pageX - canvasLeft;
 		var y = event.pageY - canvasTop;
-		console.log(x, y);
 		elements.forEach(function(element) {
-			//console.log(element.left, element.top, element.width, element.height);
 			if(y > element.top && y < element.top + element.height && 
 				x > element.left && x < element.left + element.width) {
 					points++;
-					// ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 					ctx.fillStyle="yellow";
 					score.innerHTML = points + " points";
 			}
